@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telematik-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: telematik-service
+  template:
+    metadata:
+      labels:
+        app: telematik-service
+    spec:
+      containers:
+      - name: telematik-container
+        image: telematik-service:latest
+        ports:
+        - containerPort: 8080
