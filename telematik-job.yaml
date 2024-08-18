@@ -1,0 +1,11 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: telematik-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: telematik-processor
+        image: telematik-processor:latest
+      restartPolicy: Never
